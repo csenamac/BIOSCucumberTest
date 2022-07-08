@@ -27,10 +27,26 @@ Feature: Compras
     And Doy click en el boton "Pay by wire bank"
     And Doy click en el boton "I confirm my order"
 
+  Scenario:
+    Given Selecciono barra de busqueda
+    When Escribo nombre del producto "dresses"
+    And Valido que aparezca el nombre "dresses" en la pagina
+    And Selecciono el primer articulo y doy click en el boton "Add to WishList"
+    And Selecciono el segundo articulo y doy click en el boton "Add to WishList"
+    And accedo a la pagina de comparacion y verifico que esten en los articulos
+
+  Scenario:
+    Given Selecciono barra de busqueda
+    When Escribo nombre del producto "dresses"
+    And Valido que aparezca el nombre "dresses" en la pagina
+    And Selecciono el primer articulo y doy click en el boton "Add to compare"
+    And Selecciono el segundo articulo y doy click en el boton "Add to compare"
+    And Accedo a la pagina de comparacion y verifico que esten en los articulos
+
     Scenario:
-      Given Selecciono barra de busqueda
-      When Escribo nombre del producto "dresses"
-      And Valido que aparezca el nombre "dresses" en la pagina
-      And Selecciono el primer articulo y doy click en el boton "Add to WishList"
-      And Selecciono el segundo articulo y doy click en el boton "Add to WishList"
-      And Verifico que esten en la WishList
+      Given Accedo a la pagina "Contact us"
+      And En el campo "Subject Heading" selecciono la opcion "Customer Service"
+      And En el campo "Email address" escribo "probando.ando.csenamac@gmail.com"
+      And En el campo "Message" escribo "Ando probando el sistema de mails"
+      Then Presiono el boton "Send"
+      And Verifico que el mensaje sea enviado

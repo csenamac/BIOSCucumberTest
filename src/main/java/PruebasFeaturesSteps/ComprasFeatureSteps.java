@@ -1,39 +1,47 @@
 package PruebasFeaturesSteps;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.After;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
+import static org.hamcrest.core.Is.is;
+
 public class ComprasFeatureSteps {
     WebDriver drvChrome = new ChromeDriver();
+    private List<OptionRequestData> request;
+    String result = null;
 
     @Given("accedo a la pagina {string}")
     public void accedoALaPaginaString(String url) {
         System.getProperty("webdriver.chrome.driver", "C:\\GitHub\\BIOSCucumberTest");
         drvChrome.get(url);
-        Assert.assertTrue(true);
+        String tituloPagina = "My store";
+        Assert.assertThat(drvChrome.getTitle(), is(tituloPagina));
     }
 
     @After
     public void cerrarBrowser() {
-        drvChrome.close();
-    }
 
-    @Given("accedo a la pagina http:\\/\\/automationpractice.com")
-    public void accedoALaPaginaHttpAutomationpracticeCom() {
+        drvChrome.quit();
     }
 
     @And("Me  logueo con el usuario {string} y el password {string}")
     public void meLogueoConElUsuarioYElPassword(String arg0, String arg1) {
+
     }
 
     @Given("Selecciono barra de busqueda")
     public void seleccionoBarraDeBusqueda() {
+
     }
 
     @When("Escribo nombre del producto {string}")
@@ -56,7 +64,7 @@ public class ComprasFeatureSteps {
     public void seleccionoElSegundoArticuloYDoyClickEnElBoton(String arg0) {
     }
 
-    @And("accedo a la pagina de comparacion y verifico que esten en los articulos")
+    @And("Accedo a la pagina de comparacion y verifico que esten en los articulos")
     public void accedoALaPaginaDeComparacionYVerificoQueEstenEnLosArticulos() {
     }
 
@@ -79,5 +87,37 @@ public class ComprasFeatureSteps {
     @And("Verifico que el mensaje sea enviado")
     public void verificoQueElMensajeSeaEnviado() {
     }
+
+    @And("Accedo a la pagina de wishlist y verifico que esten en los articulos")
+    public void accedoALaPaginaDeWishlistYVerificoQueEstenEnLosArticulos() {
+    }
+
+    @And("Escribo la siguiente informacion en la pagina Contact us")
+    public void escriboLaSiguienteInformacionEnLaPaginaContactUs(OptionRequestData tabla) {
+        result = tabla.getSubjectHeading();
+        result = tabla.getMessage();
+        result = tabla.getSMailAddress();
+
+        for (int i = 0; i < result.length(); i++) {
+            if (drvChrome.findElement(By.xpath("")).getText().equals("-- Choose --")) {
+
+                switch (result) {
+                    case "subjectHeading":
+                        drvChrome.findElement(By.xpath("")).click();
+                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).click();
+                        break;
+                    case "eMailAddress":
+                        drvChrome.findElement(By.xpath("")).click();
+                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
+                        break;
+                    case "message":
+                        drvChrome.findElement(By.xpath("")).click();
+                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
+                        break;
+                }
+            }
+        }
+    }
 }
+
 

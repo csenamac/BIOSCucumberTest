@@ -4,32 +4,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.After;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.List;
-
-import static org.hamcrest.core.Is.is;
-
-public class Pruebas extends PruebasBase{
-    WebDriver drvChrome = new ChromeDriver();
-    private List<OptionRequestData> request;
-    String result = null;
+public class Pruebas extends PruebasBase {
 
     @Given("accedo a la pagina {string}")
     public void accedoALaPaginaString(String url) {
-
-        drvChrome.get(url);
-        String tituloPagina = "My store";
-        Assert.assertThat(drvChrome.getTitle(), is(tituloPagina));
+        Assert.assertEquals(paginaInicio.getTituloPagina(), paginaInicio.getLocalizadorTituloPagina());
     }
 
-    @After
-    public void cerrarBrowser() {
-        drvChrome.quit();
-    }
 
     @And("Me  logueo con el usuario {string} y el password {string}")
     public void meLogueoConElUsuarioYElPassword(String arg0, String arg1) {

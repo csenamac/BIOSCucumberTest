@@ -1,4 +1,12 @@
-PruebasFeaturesSteps/OptionRequestData.java
- PruebasFeaturesSteps.OptionRequestData
-PruebasFeaturesSteps/ComprasFeatureSteps.java
- PruebasFeaturesSteps.ComprasFeatureSteps
+pruebas/Pruebas.java
+ pruebas.Pruebas
+pruebas/PruebasBase.java
+ pruebas.PruebasBase
+pom/PaginaMyStoreInicio.java
+ pom.PaginaMyStoreInicio
+pruebas/OptionRequestData.java
+ pruebas.OptionRequestData
+pom/PaginasBase.java
+ pom.PaginasBase
+pruebas/Hooks.java
+ pruebas.Hooks

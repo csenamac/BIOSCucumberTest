@@ -51,11 +51,11 @@ Feature: Compras
 #      Then Presiono el boton "Send"
 #      And Verifico que el mensaje sea enviado
 
-  Scenario: Contactenos
-    Given Accedo a la pagina "Contact us"
-    And Escribo la siguiente informacion en la pagina Contact us
-      | subjectHeading    | eMailAddress                     | message     |
-      | Customer services | probando.ando.csenamac@gmail.com | Hola mundo! |
-    Then Presiono el boton "Send"
-    And Verifico que el mensaje sea enviado
+#  Scenario: Contactenos
+#    Given Accedo a la pagina "Contact us"
+#    And Escribo la siguiente informacion en la pagina Contact us
+#      | subjectHeading    | eMailAddress                     | message     |
+#      | Customer services | probando.ando.csenamac@gmail.com | Hola mundo! |
+#    Then Presiono el boton "Send"
+#    And Verifico que el mensaje sea enviado
 

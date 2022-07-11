@@ -1,13 +1,11 @@
-package PruebasFeaturesSteps;
+package pruebas;
 
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.After;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -15,14 +13,14 @@ import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 
-public class ComprasFeatureSteps {
+public class Pruebas extends PruebasBase{
     WebDriver drvChrome = new ChromeDriver();
     private List<OptionRequestData> request;
     String result = null;
 
     @Given("accedo a la pagina {string}")
     public void accedoALaPaginaString(String url) {
-        System.getProperty("webdriver.chrome.driver", "C:\\GitHub\\BIOSCucumberTest");
+
         drvChrome.get(url);
         String tituloPagina = "My store";
         Assert.assertThat(drvChrome.getTitle(), is(tituloPagina));
@@ -30,7 +28,6 @@ public class ComprasFeatureSteps {
 
     @After
     public void cerrarBrowser() {
-
         drvChrome.quit();
     }
 
@@ -92,32 +89,33 @@ public class ComprasFeatureSteps {
     public void accedoALaPaginaDeWishlistYVerificoQueEstenEnLosArticulos() {
     }
 
-    @And("Escribo la siguiente informacion en la pagina Contact us")
-    public void escriboLaSiguienteInformacionEnLaPaginaContactUs(OptionRequestData tabla) {
-        result = tabla.getSubjectHeading();
-        result = tabla.getMessage();
-        result = tabla.getSMailAddress();
 
-        for (int i = 0; i < result.length(); i++) {
-            if (drvChrome.findElement(By.xpath("")).getText().equals("-- Choose --")) {
-
-                switch (result) {
-                    case "subjectHeading":
-                        drvChrome.findElement(By.xpath("")).click();
-                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).click();
-                        break;
-                    case "eMailAddress":
-                        drvChrome.findElement(By.xpath("")).click();
-                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
-                        break;
-                    case "message":
-                        drvChrome.findElement(By.xpath("")).click();
-                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
-                        break;
-                }
-            }
-        }
-    }
+//    @And("Escribo la siguiente informacion en la pagina Contact us")
+//    public void escriboLaSiguienteInformacionEnLaPaginaContactUs(OptionRequestData tabla) {
+//        result = tabla.getSubjectHeading();
+//        result = tabla.getMessage();
+//        result = tabla.getSMailAddress();
+//
+//        for (int i = 0; i < result.length(); i++) {
+//            if (drvChrome.findElement(By.xpath("")).getText().equals("-- Choose --")) {
+//
+//                switch (result) {
+//                    case "subjectHeading":
+//                        drvChrome.findElement(By.xpath("")).click();
+//                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).click();
+//                        break;
+//                    case "eMailAddress":
+//                        drvChrome.findElement(By.xpath("")).click();
+//                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
+//                        break;
+//                    case "message":
+//                        drvChrome.findElement(By.xpath("")).click();
+//                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
+//                        break;
+//                }
+//            }
+//        }
+//    }
 }
 
 

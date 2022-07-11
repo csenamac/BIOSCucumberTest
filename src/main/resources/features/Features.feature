@@ -43,13 +43,13 @@ Feature: Compras
     And Selecciono el segundo articulo y doy click en el boton "Add to compare"
     And Accedo a la pagina de comparacion y verifico que esten en los articulos
 
-    Scenario: Contactenos
-      Given Accedo a la pagina "Contact us"
-      And En el campo "Subject Heading" selecciono la opcion "Customer Service"
-      And En el campo "Email address" escribo "probando.ando.csenamac@gmail.com"
-      And En el campo "Message" escribo "Ando probando el sistema de mails"
-      Then Presiono el boton "Send"
-      And Verifico que el mensaje sea enviado
+#    Scenario: Contactenos
+#      Given Accedo a la pagina "Contact us"
+#      And En el campo "Subject Heading" selecciono la opcion "Customer Service"
+#      And En el campo "Email address" escribo "probando.ando.csenamac@gmail.com"
+#      And En el campo "Message" escribo "Ando probando el sistema de mails"
+#      Then Presiono el boton "Send"
+#      And Verifico que el mensaje sea enviado
 
   Scenario: Contactenos
     Given Accedo a la pagina "Contact us"

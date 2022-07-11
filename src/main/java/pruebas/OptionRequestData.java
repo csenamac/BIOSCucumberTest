@@ -1,4 +1,4 @@
-package PruebasFeaturesSteps;
+package pruebas;
 import lombok.Builder;
 import lombok.Data;
 

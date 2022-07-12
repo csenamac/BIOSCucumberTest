@@ -1,10 +1,12 @@
 package pruebas;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 public class Pruebas extends PruebasBase {
 
@@ -72,33 +74,27 @@ public class Pruebas extends PruebasBase {
     public void accedoALaPaginaDeWishlistYVerificoQueEstenEnLosArticulos() {
     }
 
+    @Given("Selecciono la barra de busqueda")
+    public void seleccionoLaBarraDeBusqueda() {
 
-//    @And("Escribo la siguiente informacion en la pagina Contact us")
-//    public void escriboLaSiguienteInformacionEnLaPaginaContactUs(OptionRequestData tabla) {
-//        result = tabla.getSubjectHeading();
-//        result = tabla.getMessage();
-//        result = tabla.getSMailAddress();
-//
-//        for (int i = 0; i < result.length(); i++) {
-//            if (drvChrome.findElement(By.xpath("")).getText().equals("-- Choose --")) {
-//
-//                switch (result) {
-//                    case "subjectHeading":
-//                        drvChrome.findElement(By.xpath("")).click();
-//                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).click();
-//                        break;
-//                    case "eMailAddress":
-//                        drvChrome.findElement(By.xpath("")).click();
-//                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
-//                        break;
-//                    case "message":
-//                        drvChrome.findElement(By.xpath("")).click();
-//                        drvChrome.findElement(By.xpath("//p[contains(,'" + result + "')]")).sendKeys(result);
-//                        break;
-//                }
-//            }
-//        }
-//    }
+    }
+
+    @And("Selecciono todos los productos con Nombre {string}")
+    public void seleccionoTodosLosProductosConNombre(DataTable prodTable, String producto) {
+        Assert.assertEquals("producto no encontrado", producto, driver.findElement(By.xpath("")));
+
+        prodTable.asList().forEach(row ->
+                {
+                    driver.findElement(By.xpath("//div[@id='" + row + "']")).click();
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+        );
+    }
 }
 
 
